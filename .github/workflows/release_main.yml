@@ -97,9 +97,12 @@ jobs:
           fi
           gh release upload "v${{ steps.prep.outputs.VERSION }}" release/*
   
-  Release_v2rayA_to_Docker:
+  Release_Docker_Images:
     runs-on: ubuntu-latest
     needs: [GitHub_Release]
+    permissions:
+      contents: read
+      packages: write 
     steps:
       - uses: actions/checkout@v6
         with:
