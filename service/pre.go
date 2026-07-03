@@ -324,6 +324,12 @@ func updateSubscriptions() {
 		log.Error("[AutoSelect] Failed to auto-select servers from subscriptions -- err: %v", err2)
 	}
 
+	// start server selection for subscriptions that have auto-select enabled
+	err3 := service.StartV2ray()
+	if err3 != nil {
+		log.Error("[AutoSelect] Failed to start servers  -- err: %v", err3)
+	}
+
 }
 
 func initUpdatingTicker() {
