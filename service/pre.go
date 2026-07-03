@@ -325,13 +325,15 @@ func updateSubscriptions() {
 	}
 
 	// start server selection for subscriptions that have auto-select enabled
-	runing := v2ray.ProcessManager.Running()
+	runing := v2ray.ProcessManager.ServiceRunning()
 	if !runing {
 		log.Info("[AutoSelect] v2ray-core is not running, starting it first...")
 		err := v2ray.UpdateV2RayConfig()
 		if err != nil {
 			log.Error("[AutoSelect] failed to start v2ray-core: %v", err)
 		}
+	} else {
+		log.Info("[AutoSelect] v2ray-core is running...")
 	}
 }
 
