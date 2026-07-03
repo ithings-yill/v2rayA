@@ -22,8 +22,8 @@ case "$(arch)" in
         ;;
 esac
 mkdir -p build && cd build || exit
-wget https://github.com/v2rayA/v2rayA/releases/download/vRealv2rayAVersion/v2raya_linux_"$v2raya_arch"_Realv2rayAVersion
-wget https://github.com/v2rayA/v2rayA/releases/download/vRealv2rayAVersion/v2raya_core_linux_"$v2raya_arch"_Realv2rayAVersion
+wget https://github.com/ithings-yill/v2rayA/releases/download/vRealv2rayAVersion/v2raya_linux_"$v2raya_arch"_Realv2rayAVersion
+wget https://github.com/ithings-yill/v2rayA/releases/download/vRealv2rayAVersion/v2raya_core_linux_"$v2raya_arch"_Realv2rayAVersion
 install ./v2raya_linux_"$v2raya_arch"_Realv2rayAVersion /usr/bin/v2raya
 install ./v2raya_core_linux_"$v2raya_arch"_Realv2rayAVersion /usr/bin/v2raya_core
 mkdir /usr/share/v2raya
