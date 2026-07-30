@@ -17,8 +17,6 @@ jobs:
           # Linux amd64/arm64: TinyTun supported
           - { goos: linux, goarch: amd64, tinytun: true }
           - { goos: linux, goarch: arm64, tinytun: true }
-          # Linux armv7: no TinyTun
-          - { goos: linux, goarch: arm, goarm: "7", tinytun: false }
           # Windows amd64/arm64: TinyTun supported
           - { goos: windows, goarch: amd64, tinytun: true }
           - { goos: windows, goarch: arm64, tinytun: true }
