@@ -17,14 +17,6 @@ jobs:
           # Linux amd64/arm64: TinyTun supported
           - { goos: linux, goarch: amd64, tinytun: true }
           - { goos: linux, goarch: arm64, tinytun: true }
-          # Linux other architectures: no TinyTun
-          - { goos: linux, goarch: "386", tinytun: false }
-          - { goos: linux, goarch: riscv64, tinytun: false }
-          - { goos: linux, goarch: mips64, tinytun: false }
-          - { goos: linux, goarch: mips64le, tinytun: false }
-          - { goos: linux, goarch: mipsle, tinytun: false }
-          - { goos: linux, goarch: mips, tinytun: false }
-          - { goos: linux, goarch: loong64, tinytun: false }
           # Linux armv7: no TinyTun
           - { goos: linux, goarch: arm, goarm: "7", tinytun: false }
           # Windows amd64/arm64: TinyTun supported
@@ -33,12 +25,6 @@ jobs:
           # macOS amd64/arm64: TinyTun supported
           - { goos: darwin, goarch: amd64, tinytun: true }
           - { goos: darwin, goarch: arm64, tinytun: true }
-          # FreeBSD: no TinyTun
-          - { goos: freebsd, goarch: amd64, tinytun: false }
-          - { goos: freebsd, goarch: arm64, tinytun: false }
-          # OpenBSD: no TinyTun
-          - { goos: openbsd, goarch: amd64, tinytun: false }
-          - { goos: openbsd, goarch: arm64, tinytun: false }
     env:
       CGO_ENABLED: 0
       VERSION: ${{ inputs.version }}

@@ -138,7 +138,7 @@ jobs:
           context: .
           builder: ${{ steps.buildx.outputs.name }}
           file: install/docker/Dockerfile.Action
-          platforms: linux/arm,linux/arm64,linux/amd64,linux/riscv64
+          platforms: linux/arm64,linux/amd64
           push: true
           tags: |
             ghcr.io/${{ env.LOWERCASE_REPOSITORY_OWNER }}/v2raya:${{ steps.prep.outputs.tag }}
