@@ -6,6 +6,7 @@ import (
 
 	"github.com/v2rayA/v2rayA/conf"
 	"github.com/v2rayA/v2rayA/db/configure"
+	"github.com/v2rayA/v2rayA/kernel/v2ray"
 	"github.com/v2rayA/v2rayA/kernel/v2ray/asset/dat"
 	"github.com/v2rayA/v2rayA/pkg/util/log"
 	"github.com/v2rayA/v2rayA/server/service"
@@ -42,6 +43,15 @@ func updateSubscriptions() {
 	err2 := service.AutoSelectServersFromSubscriptions(shouldDisconnect)
 	if err2 != nil {
 		log.Error("[AutoSelect] Failed to auto-select servers from subscriptions -- err: %v", err2)
+	}
+
+	runing := v2ray.ProcessManager.Running()
+	if !runing {
+		log.Info("[AutoSelect] v2ray-core is not running, starting it first...")
+		err := v2ray.UpdateV2RayConfig()
+		if err != nil {
+			log.Error("[AutoSelect] failed to start v2ray-core: %v", err)
+		}
 	}
 
 }
